@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/css/admin_dashboard.css">
+
+<body>
+    <main>
+        <section class="dashboard-section">
+            <form action="/admin/request-review" method="GET">
+                <button class="request-review-btn">Ask For Review</button>
+            </form>
+            <div id="user-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Admin</th>
+                            <th>Actions</th>
+                            <th>Delete User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let user of all_users) { %>
+                            <tr>
+                                <td><%= user.name %></td>
+                                <td>
+                                    <% if (user.passcode !== 'YOUAREADMIN') { %>
+                                        False
+                                    <% } else { %>
+                                        True
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <% if (user.passcode !== 'YOUAREADMIN') { %>
+                                        <form action="/admin/user-to-admin/<%= user.id %>" method="POST">
+                                            <button class="action-btn make-admin-btn">Make Admin</button>
+                                        </form>
+                                    <% } else { %>
+                                        <% for (admin of all_admin) { %>
+                                            <% if (admin.email === user.email) { %>
+                                                <a href="/admin/destroy-admin/<%= admin.id %>">
+                                                    <button class="action-btn remove-admin-btn">Remove Admin</button>
+                                                </a>
+                                            <% } %>
+                                        <% } %>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <a href="/admin/destroy-user/<%= user.id %>">
+                                        <button class="action-btn delete-user-btn">Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>

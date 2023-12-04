@@ -1,0 +1,86 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.dashboard-section {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#user-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+thead {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.request-review-btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.request-review-btn:hover {
+    background-color: #0056b3;
+}
+
+.action-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.make-admin-btn {
+    background-color: #5bc0de;
+    transition: background-color 0.3s;
+}
+
+.make-admin-btn:hover {
+    background-color: #4a90e2;
+}
+
+.remove-admin-btn {
+    background-color: #d9534f;
+    transition: background-color 0.3s;
+}
+
+.remove-admin-btn:hover {
+    background-color: #c9302c;
+}
+
+.delete-user-btn {
+    background-color: #d9534f;
+    transition: background-color 0.3s;
+}
+
+.delete-user-btn:hover {
+    background-color: #c9302c;
+}
